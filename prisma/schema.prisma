@@ -9,3 +9,41 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+
+  //""""Relationship
+  veiaco Veiaco[]
+
+  @@map("usuarios")
+}
+
+model Veiaco {
+  id         Int      @id @default(autoincrement())
+  name       String
+  phone      String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  //""""Relationships
+  user User[]
+  debt Debt[]
+
+  @@map("veiacos")
+}
+
+model Debt {
+  id    Int      @id @default(autoincrement())
+  title String
+  value Float
+  date  DateTime
+
+  //""""Relationships
+  veiaco Veiaco[]
+
+  @@map("dividas")
+}
