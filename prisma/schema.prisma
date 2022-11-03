@@ -18,6 +18,7 @@ model User {
 
   //""""Relationship
   veiaco Veiaco[]
+  debt Debt[]
 
   @@map("usuarios")
 }
@@ -40,10 +41,11 @@ model Debt {
   id    Int      @id @default(autoincrement())
   title String
   value Float
-  date  DateTime
+  date  DateTime?
 
   //""""Relationships
   veiaco Veiaco[]
+  user User[]
 
   @@map("dividas")
 }
