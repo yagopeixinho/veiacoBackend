@@ -1,12 +1,8 @@
-import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { UnauthorizedError } from "../helpers/appError";
 
-export interface PayLoad {
-  id: string;
-  ita: number;
-  exp: number;
-}
+import { Request, Response, NextFunction } from "express";
+import { UnauthorizedError } from "../helpers/appError";
+import { AuthPayLoad } from "../types/AuthUserDTO";
 
 export function isAuthenticated(
   req: Request,
@@ -22,7 +18,7 @@ export function isAuthenticated(
   try {
     const data = jwt.verify(token, "secret");
 
-    const { id } = data as PayLoad;
+    const { id } = data as AuthPayLoad;
 
     req.id = id;
 
