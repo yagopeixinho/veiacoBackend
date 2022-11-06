@@ -1,5 +1,5 @@
 import { Debt } from "@prisma/client";
-import { CreateDebtDTO } from "../../@types/debt/CreateDebtDTO";
+import { CreateDebtDTO } from "../../types/CreateDebtDTO";
 import { prisma } from "../../config/prisma/client";
 
 export class CreateDebtService {

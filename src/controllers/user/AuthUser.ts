@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AuthUserDTO } from "../../@types/debt/AuthUserDTO";
+import { AuthUserDTO } from "../../types/AuthUserDTO";
 import { AuthUserService } from "../../services/user/AuthUser.service";
 
 export class AuthUserController {
@@ -8,7 +8,7 @@ export class AuthUserController {
 
     const _authUserService = new AuthUserService();
 
-    const token =  await _authUserService.execute({ email, password });
+    const token = await _authUserService.execute({ email, password });
 
     res.status(201).json({ auth: true, token });
   }

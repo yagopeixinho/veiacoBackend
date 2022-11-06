@@ -7,7 +7,6 @@ export class GetAllUsersController {
 
     const response = await _getAllUsersService.execute();
 
-    console.dir(response);
     res.status(201).json(response);
   }
 }

@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { CreateUserDTO } from "../../@types/user/CreateUserDTO";
+import { CreateUserDTO } from "../../types/CreateUserDTO";
 import { prisma } from "../../config/prisma/client";
 
 export class CreateUserService {

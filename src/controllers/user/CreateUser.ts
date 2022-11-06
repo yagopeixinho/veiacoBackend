@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateUserDTO } from "../../@types/user/CreateUserDTO";
+import { CreateUserDTO } from "../../types/CreateUserDTO";
 import { CreateUserService } from "../../services/user/CreateUser.service";
 
 export class CreateUserController {

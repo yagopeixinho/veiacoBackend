@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateDebtDTO } from "../../@types/debt/CreateDebtDTO";
+import { CreateDebtDTO } from "../../types/CreateDebtDTO";
 import { CreateDebtService } from "../../services/debt/CreateDebt.service";
 
 export class CreateDebtController {
