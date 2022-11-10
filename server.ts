@@ -3,14 +3,18 @@ import express from "express";
 import { errorMiddleware } from "./src/middlewares/error";
 import { router } from "./src/routes";
 
+const cors = require("cors");
+
 require("dotenv").config();
 
 const app = express();
-app.use(express.json());
 
-// Router config
+// App config
+app.use(express.json());
+app.use(cors());
 app.use(router);
 
+// Global middlewares
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
