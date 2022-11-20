@@ -4,7 +4,9 @@
   "description": "Um projeto para que você gerencie a grana que você emprestou para os seus colegas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./dist && tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",

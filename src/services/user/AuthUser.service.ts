@@ -10,11 +10,16 @@ export class AuthUserService {
     const user = await prisma.user.findFirst({ where: { email: email } });
 
     if (!user) {
-      throw new UnauthorizedError("Usuário ou senha inválido...");
+      throw new UnauthorizedError("Usuário ou senha inválida...");
     }
 
-    const token = jwt.sign({ id: user?.id }, "secret", {
-      expiresIn: "7d",
+    if (user.password !== password) {
+      throw new UnauthorizedError("Usuário ou senha inválida...");
+    }
+
+    debugger;
+    const token = jwt.sign({ id: user?.id, user: user }, "secret", {
+      expiresIn: "7d"
     });
 
     return token;
