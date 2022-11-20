@@ -8,12 +8,15 @@ export class CreateUserController {
 
     const _createUserService = new CreateUserService();
 
-    const response = await _createUserService.execute({
-      name,
-      email,
-      password,
-    });
-
-    res.status(201).json(response);
+    try {
+      const response = await _createUserService.execute({
+        name,
+        email,
+        password,
+      });
+      res.status(201).json(response);
+    } catch (err) {
+      res.status(400).json({ error: err });
+    }
   }
 }
