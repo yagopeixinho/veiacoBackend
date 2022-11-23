@@ -6,7 +6,11 @@ import { isAuthenticated } from "../middlewares/isAuthenticated";
 
 export const userRoutes = Router();
 
+/****
+ * Public routes */
 userRoutes.post("/", new CreateUserController().handle);
 userRoutes.post("/auth", new AuthUserController().handle);
 
+/****
+ * Private routes */
 userRoutes.get("/", isAuthenticated, new GetAllUsersController().handle);
