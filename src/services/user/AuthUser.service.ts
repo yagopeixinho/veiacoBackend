@@ -1,4 +1,4 @@
-import { AppError, UnauthorizedError } from "../../helpers/appError";
+import { UnauthorizedError } from "../../helpers/appError";
 import { AuthUserDTO } from "../../types/AuthUserDTO";
 import { prisma } from "../../config/prisma/client";
 
@@ -17,9 +17,8 @@ export class AuthUserService {
       throw new UnauthorizedError("Usuário ou senha inválida...");
     }
 
-    debugger;
     const token = jwt.sign({ id: user?.id, user: user }, "secret", {
-      expiresIn: "7d"
+      expiresIn: "7d",
     });
 
     return token;
