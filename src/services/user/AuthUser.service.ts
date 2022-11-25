@@ -7,7 +7,17 @@ require("dotenv").config();
 
 export class AuthUserService {
   async execute({ email, password }: AuthUserDTO) {
-    const user = await prisma.user.findFirst({ where: { email: email } });
+    const user = await prisma.user.findFirst({
+      where: { email: email },
+      include: {
+        debt: {
+          include: {
+            veiaco: true,
+          },
+        },
+        veiaco: true,
+      },
+    });
 
     if (!user) {
       throw new UnauthorizedError("Usuário ou senha inválida...");
