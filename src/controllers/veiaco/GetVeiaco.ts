@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { GetVeiacoService } from "../../services/veiaco/GetVeiaco.service";
 
-export default class GetVeiacoController {
+export class GetVeiacoController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
 

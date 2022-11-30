@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { CreateVeiacoController } from "../controllers/veiaco/CreateVeiaco";
-import GetVeiacoController from "../controllers/veiaco/GetVeiaco";
+import { UpdateVeiacoController } from "../controllers/veiaco/UpdateVeiaco";
 import { isAuthenticated } from "../middlewares/isAuthenticated";
+import { GetVeiacoController } from "../controllers/veiaco/GetVeiaco";
 
 export const veiacoRoutes = Router();
 
@@ -17,3 +18,6 @@ veiacoRoutes.get("/:id", isAuthenticated, new GetVeiacoController().handle);
 
 // POST
 veiacoRoutes.post("/", isAuthenticated, new CreateVeiacoController().handle);
+
+// PUT
+veiacoRoutes.put("/:id", isAuthenticated, new UpdateVeiacoController().handle);
