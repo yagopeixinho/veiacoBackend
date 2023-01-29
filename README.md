@@ -1,0 +1,67 @@
+<!-- <div align="center">
+     <img src="assets/images/readmeTemplateIcon.png" width="300px">
+</div> -->
+
+<h4 align="center">README - work in progress...</h4>
+
+<p align="center">
+    <img src="https://img.shields.io/github/last-commit/yagopeixinho/readmeTemplate?color=008ebd">
+    <img src="https://img.shields.io/github/languages/count/yagopeixinho/readmeTemplate?color=b3ecff">
+    <img src="https://img.shields.io/netlify/a56c2296-3139-4d5a-8fcd-b32b52f0b6a5?color=69bbc9">
+    <img src="https://img.shields.io/github/license/yagopeixinho/vouAoMercado?color=00b6d6">
+</p>
+
+<p align="center">
+  <a href="#about-the-project">About</a> • 
+  <a href="#project-notes">Project notes</a> •
+  <a href="#gallery">Gallery</a> •
+  <a href="#getting-started">Getting started</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#contacting">Contacting</a> •
+  <a href="#license">License</a>
+</p>
+
+<!-- <img src="assets/images/sampleImage2.png" width="100%"> -->
+
+<br>
+
+## About the Project
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec suscipit dapibus ligula, non maximus augue tempor a. Etiam sed dolor magna. Praesent rhoncus urna eu ipsum accumsan dignissim.
+
+## Project Notes
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam.
+- Lorem ipsum dolor sit amet, _consectetur adipiscing elit_. Aenean at lacinia mauris. Donec consequat _ligula sapien_. Fusce vitae vestibulum diam.
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+
+## Gallery
+
+<div align="center">
+
+### Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<!-- <img src="assets/images/sampleImage1.png"> -->
+
+</div>
+
+<br>
+
+## Getting Started?
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. 
+~~~bash
+# Lorem ipsum dolor sit amet
+$ git clone git@github.com:yagopeixinho/readmeTemplate.git
+~~~
+
+
+## Contributing
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris.
+
+## Contacting
+
+- 📬 Lorem ipsum dolor sit amet: loremipsumdolor@sitamet.com
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. [Lacinia mauris](https://github.com/yagopeixinho/yagopeixinho/blob/master/README.md)
+
+## License
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Lorem ipsumm dolor siti](https://github.com/yagopeixinho/vouAoMercado/blob/master/LICENSE)
