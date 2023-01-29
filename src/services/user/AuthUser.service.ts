@@ -7,6 +7,7 @@ require("dotenv").config();
 
 export class AuthUserService {
   async execute({ email, password }: AuthUserDTO) {
+
     const user = await prisma.user.findFirst({
       where: { email: email },
       include: {

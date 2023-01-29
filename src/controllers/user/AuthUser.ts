@@ -5,7 +5,7 @@ import { AuthUserService } from "../../services/user/AuthUser.service";
 export class AuthUserController {
   async handle(req: Request, res: Response) {
     const { email, password }: AuthUserDTO = req.body;
-
+    console.log("oi");
     const _authUserService = new AuthUserService();
 
     const token = await _authUserService.execute({ email, password });

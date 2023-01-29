@@ -15,7 +15,7 @@
   <a href="#about-the-project">About</a> • 
   <a href="#project-notes">Project notes</a> •
   <a href="#gallery">Gallery</a> •
-  <a href="#getting-started">Getting started</a> •
+  <a href="#instalação">Instalação</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#contacting">Contacting</a> •
   <a href="#license">License</a>
@@ -47,7 +47,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauri
 
 <br>
 
-## Getting Started?
+## Instalação
 
 ### Pré-requisitos
 
@@ -55,6 +55,8 @@ Antes de rodar o _back-end_ do projeto Veiaco, é necessário ter instalado em s
 
 - Git
 - Node.js
+  - A versão do node de ser >=14.17
+- PostegreSQL
 
 ### 📦 Clonando o repositório
 
@@ -62,17 +64,58 @@ Antes de rodar o _back-end_ do projeto Veiaco, é necessário ter instalado em s
 $ git clone git@github.com:yagopeixinho/veiacoBackend.git
 ```
 
-### 🔨 Rodando o repositório
+### 🔨 Configurações iniciais
+
 ```bash
 # Acesse o reposiório pelo terminal
 $ cd veiacoBackend
 
 # Instale as dependências
 $ npm install
-
-
 ```
 
+### Variáveis de ambiente
+
+Para iniciarmos o projeto precisamos declarar algumas variáveis de ambiente responsáveis pela definição de algumas informações importante, como a URL do banco de dados e porta em que a aplicação rodará.
+
+```bash
+# No diretório do projeto crie o arquivo responsável pela definição das variáveis de ambiente
+$ touch .env
+```
+
+Dentro do arquivo _.env_ cole as variáveis de ambiente mínimas para rodar o projeto
+
+```bash
+PORT="3333"
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+```
+
+Para iniciar o projeto basta digitar `npm start` na pasta raiz.
+
+### Conectando o banco de dados
+
+#### PostgreSQL
+
+Nesse projeto vamos utilizar o Prisma como ORM e conectaremos o banco de dados.
+
+##### Criando o banco de dados Veiaco com o Postgres
+
+```bash
+# Acesse o psql pelo terminal
+$ sudo -u postgres psql
+
+# Crie o banco de dados
+CREATE DATABASE veiaco;
+```
+
+O banco de dados foi criado as tabelas e colunas ainda não foram geradas, somente um banco de dados vazio. Com o projeto rodando na porta `localhost:3333` digite no terminal
+
+```bash
+# Rode os migrates do Prisma
+$ npx prisma migrate dev
+```
+
+As informações foram geradas e agora o banco de dados está pronto pra receber e conceber informações.
 
 ## Contributing
 
