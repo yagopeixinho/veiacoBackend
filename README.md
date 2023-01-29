@@ -26,19 +26,21 @@
 <br>
 
 ## About the Project
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec suscipit dapibus ligula, non maximus augue tempor a. Etiam sed dolor magna. Praesent rhoncus urna eu ipsum accumsan dignissim.
 
 ## Project Notes
+
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam.
 - Lorem ipsum dolor sit amet, _consectetur adipiscing elit_. Aenean at lacinia mauris. Donec consequat _ligula sapien_. Fusce vitae vestibulum diam.
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
 
 ## Gallery
 
 <div align="center">
 
 ### Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 <!-- <img src="assets/images/sampleImage1.png"> -->
 
 </div>
@@ -46,11 +48,30 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauri
 <br>
 
 ## Getting Started?
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. 
-~~~bash
-# Lorem ipsum dolor sit amet
-$ git clone git@github.com:yagopeixinho/readmeTemplate.git
-~~~
+
+### Pré-requisitos
+
+Antes de rodar o _back-end_ do projeto Veiaco, é necessário ter instalado em sua máquina:
+
+- Git
+- Node.js
+
+### 📦 Clonando o repositório
+
+```bash
+$ git clone git@github.com:yagopeixinho/veiacoBackend.git
+```
+
+### 🔨 Rodando o repositório
+```bash
+# Acesse o reposiório pelo terminal
+$ cd veiacoBackend
+
+# Instale as dependências
+$ npm install
+
+
+```
 
 
 ## Contributing
