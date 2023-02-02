@@ -25,17 +25,17 @@
 
 <br>
 
-# About the Project
+## About the Project
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec suscipit dapibus ligula, non maximus augue tempor a. Etiam sed dolor magna. Praesent rhoncus urna eu ipsum accumsan dignissim.
 
-# Project Notes
+## Project Notes
 
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam.
 - Lorem ipsum dolor sit amet, _consectetur adipiscing elit_. Aenean at lacinia mauris. Donec consequat _ligula sapien_. Fusce vitae vestibulum diam.
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-# Gallery
+## Gallery
 
 <div align="center">
 
@@ -47,9 +47,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauri
 
 <br>
 
-# Instalação
+## Instalação
 
-## Pré-requisitos
+### Pré-requisitos
 
 Antes de rodar o _back-end_ do projeto Veiaco, é necessário ter instalado em sua máquina:
 
@@ -58,70 +58,70 @@ Antes de rodar o _back-end_ do projeto Veiaco, é necessário ter instalado em s
   - A versão do node de ser >=14.17
 - PostegreSQL
 
-## 📦 Clonando o repositório
+### 📦 Clonando o repositório
 
 ```bash
 $ git clone git@github.com:yagopeixinho/veiacoBackend.git
 ```
 
-## 🔨 Configurações iniciais
+### 🔨 Configurações iniciais
 
 ```bash
-# Acesse o reposiório pelo terminal
+# Acesse o reposiório pelo terminal.
 $ cd veiacoBackend
 
-# Instale as dependências
+# Instale as dependências.
 $ npm install
 ```
 
-## Variáveis de ambiente
+### 🏷 Variáveis de ambiente
 
 Para iniciarmos o projeto precisamos declarar algumas variáveis de ambiente responsáveis pela definição de algumas informações importante, como a URL do banco de dados e porta em que a aplicação rodará.
 
 ```bash
-# No diretório do projeto crie o arquivo responsável pela definição das variáveis de ambiente
+# No diretório do projeto crie o arquivo responsável pela definição das variáveis de ambiente.
 $ touch .env
 ```
 
-Dentro do arquivo _.env_ cole as variáveis de ambiente mínimas para rodar o projeto
+Dentro do arquivo `.env` cole as variáveis de ambiente mínimas para rodar o projeto
 
 ```bash
+# Essa é a porta em que o projeto rodará.
 PORT="3333"
+# Esse é o URL do banco de dados que será conectado. Lembre-se de alterar os parâmetros USER, PASSWORD, HOST:PORT e DATABASE futuramente quando configurarmos a conexão com o banco de dados.
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
 ```
 
-## 🗂️ Conectando o banco de dados
+### 📁 Conectando ao banco de dados
 
-### PostgreSQL
+#### PostgreSQL
 
 Nesse projeto vamos utilizar o Prisma como ORM e conectaremos o banco de dados.
 
 ##### Criando o banco de dados Veiaco com o Postgres
 
 ```bash
-# Acesse o psql pelo terminal
+# Acesse o psql pelo terminal.
 $ sudo -u postgres psql
 
-# Crie o banco de dados
+# Crie o banco de dados.
 CREATE DATABASE veiaco;
 ```
 
-O banco de dados foi criado as tabelas e colunas ainda não foram geradas, somente um banco de dados vazio. Com o projeto rodando na porta `localhost:3333` digite no terminal
+O banco de dados foi criado as tabelas e colunas ainda não foram geradas, somente um banco de dados vazio. Para iniciar o projeto basta digitar `npm start` na pasta raiz.
 
 ```bash
-# Rode os migrates do Prisma
+# Com o projeto rodando, gere os migrates do banco de dados do Prisma.
 $ npx prisma migrate dev
 ```
 
 As informações foram geradas e agora o banco de dados está pronto pra receber e conceber informações.
 
-Para iniciar o projeto basta digitar `npm start` na pasta raiz.
-
-# Contributing
+## Contributing
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris.
 
-# Contacting
+## Contacting
 
 - 📬 Lorem ipsum dolor sit amet: loremipsumdolor@sitamet.com
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. [Lacinia mauris](https://github.com/yagopeixinho/yagopeixinho/blob/master/README.md)
