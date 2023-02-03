@@ -1,51 +1,50 @@
-<!-- <div align="center">
-     <img src="assets/images/readmeTemplateIcon.png" width="300px">
-</div> -->
-
-<h4 align="center">README - work in progress...</h4>
-
-<p align="center">
-    <img src="https://img.shields.io/github/last-commit/yagopeixinho/readmeTemplate?color=008ebd">
-    <img src="https://img.shields.io/github/languages/count/yagopeixinho/readmeTemplate?color=b3ecff">
-    <img src="https://img.shields.io/netlify/a56c2296-3139-4d5a-8fcd-b32b52f0b6a5?color=69bbc9">
-    <img src="https://img.shields.io/github/license/yagopeixinho/vouAoMercado?color=00b6d6">
-</p>
-
-<p align="center">
-  <a href="#about-the-project">About</a> • 
-  <a href="#project-notes">Project notes</a> •
-  <a href="#gallery">Gallery</a> •
-  <a href="#instalação">Instalação</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#contacting">Contacting</a> •
-  <a href="#license">License</a>
-</p>
-
-<!-- <img src="assets/images/sampleImage2.png" width="100%"> -->
-
-<br>
-
-## About the Project
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec suscipit dapibus ligula, non maximus augue tempor a. Etiam sed dolor magna. Praesent rhoncus urna eu ipsum accumsan dignissim.
-
-## Project Notes
-
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam.
-- Lorem ipsum dolor sit amet, _consectetur adipiscing elit_. Aenean at lacinia mauris. Donec consequat _ligula sapien_. Fusce vitae vestibulum diam.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Gallery
-
 <div align="center">
-
-### Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-<!-- <img src="assets/images/sampleImage1.png"> -->
-
+     <img src="https://github.com/yagopeixinho/veiacoPlataforma/raw/main/src/assets/images/logos/logo-big.svg" width="200px">
 </div>
 
+<p align="center">
+  <a href="https://github.com/yagopeixinho/veiacoBackend/commits/main">
+    <img src="https://img.shields.io/github/last-commit/yagopeixinho/veiacoBackend?color=58ADE2">
+  </a>
+    <img src="https://img.shields.io/github/languages/count/yagopeixinho/veiacoBackend?color=006DB2">
+  </a>     
+  <a href="https://github.com/yagopeixinho/veiacoPlataforma/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/yagopeixinho/veiacoBackend?color=E390D2">
+  </a>
+   <Ba>
+</p>
+
+<p align="center">
+  <a href="#sobre">Sobre</a> •  
+  <a href="#por-quê">Por quê?</a> •
+  <a href="#notas-importantes">Notas importantes</a> •
+<a href="#galeria">Galeria</a> •
+<a href="#instalação">Instalação</a> •
+<a href="#contributing">Contributing</a> •
+<a href="#contacting">Contacting</a> •
+<a href="#license">License</a>
+
+</p>
+
 <br>
+
+## Sobre o Veiaco
+O Veiaco é um aplicativo para que você possa gerenciar as pessoas que te devem dinheiro. "Veiaco" é um termo conhecido no Nordeste do Brasil que adjetiva pessoas que não costumam a pagar as suas dívidas e o APP surgiu na expectativa de ajudar as pessoas a cobrarem de forma sutil e cômica as pessoas que te devem.
+
+## Por quê?
+
+O *Veiaco*, na verdade, surgiu como uma piada. Eu estava com uns amigos – que diga-se de passagem estavam me devendo –, e então eu percebi que algumas pessoas estavam me devendo, então brincando, eu disse: "Vou ter que fazer uma nota fiscal pra cada um porque eu já esqueci o que cada um me deve" e então surgiu a ideia de criar um aplicativo pra resolver esse problema, pois além de não perder o dinheiro e a piada, eu posso ainda praticar a programação.
+
+## Notas importantes
+
+1 -  **CUIDADO!** As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
+
+## Galeria
+<div align="center">
+
+### Esse é o _back-end_ do projeto Veiaco. Para mais informações visuais, [clique aqui](https://github.com/yagopeixinho/veiacoPlataforma)
+
+</div>
 
 ## Instalação
 
