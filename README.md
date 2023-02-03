@@ -13,24 +13,17 @@
   </a>
 </p>
 
+<br />
 
-<div align="center">
+Backend API para Veiaco - [veiaco](https://github.com/yagopeixinho/veiacoPlataforma)
 
-### Esse é o _back-end_ do projeto Veiaco. Para mais informações sobre o projeto, [clique aqui](https://github.com/yagopeixinho/veiacoPlataforma).
-
-</div>
-
-<p align="center">
-  <a href="#instalação">Instalação</a> •
-  <a href="#contribuindo">Contribuindo</a> •
-  <a href="#contato">Contato</a> •
-  <a href="#licença">Licença</a>
-</p>
+> **Note**
+> Esse é o README do backend do projeto! [Confira mais informações](https://github.com/yagopeixinho/veiacoPlataforma) sobre o projeto. 
 
 
 ## Notas importantes
 
-1 - **CUIDADO!** As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
+- As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
 
 ## Instalação
 
@@ -102,8 +95,6 @@ $ npx prisma migrate dev
 
 As informações foram geradas e agora o banco de dados está pronto pra receber e conceber informações.
 
-> **Note**
-> Caso tenha alguma dúvida e/ou problema durante a instalação do ambiente, [me deixe saber](https://github.com/yagopeixinho) o mais rápido possível!
 
 ## Contribuindo
 
