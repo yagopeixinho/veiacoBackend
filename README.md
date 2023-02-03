@@ -11,35 +11,33 @@
   <a href="https://github.com/yagopeixinho/veiacoPlataforma/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/yagopeixinho/veiacoBackend?color=E390D2">
   </a>
-   <Ba>
 </p>
 
 <p align="center">
   <a href="#sobre">Sobre</a> •  
   <a href="#por-quê">Por quê?</a> •
   <a href="#notas-importantes">Notas importantes</a> •
-<a href="#galeria">Galeria</a> •
-<a href="#instalação">Instalação</a> •
-<a href="#contributing">Contributing</a> •
-<a href="#contacting">Contacting</a> •
-<a href="#license">License</a>
-
+  <a href="#galeria">Galeria</a> •
+  <a href="#instalação">Instalação</a> •
+  <a href="#contribuindo">Contribuindo</a> •
+  <a href="#contato">Contato</a> •
+  <a href="#licença">Licença</a>
 </p>
 
-<br>
-
 ## Sobre o Veiaco
-O Veiaco é um aplicativo para que você possa gerenciar as pessoas que te devem dinheiro. "Veiaco" é um termo conhecido no Nordeste do Brasil que adjetiva pessoas que não costumam a pagar as suas dívidas e o APP surgiu na expectativa de ajudar as pessoas a cobrarem de forma sutil e cômica as pessoas que te devem.
+
+Esse é o backend do Veiaco. O Veiaco é um aplicativo para que você possa gerenciar as pessoas que te devem dinheiro. "Veiaco" é um termo conhecido no Nordeste do Brasil que adjetiva pessoas que não costumam a pagar as suas dívidas e o APP surgiu na expectativa de ajudar as pessoas a cobrarem de forma sutil e cômica as pessoas que te devem.
 
 ## Por quê?
 
-O *Veiaco*, na verdade, surgiu como uma piada. Eu estava com uns amigos – que diga-se de passagem estavam me devendo –, e então eu percebi que algumas pessoas estavam me devendo, então brincando, eu disse: "Vou ter que fazer uma nota fiscal pra cada um porque eu já esqueci o que cada um me deve" e então surgiu a ideia de criar um aplicativo pra resolver esse problema, pois além de não perder o dinheiro e a piada, eu posso ainda praticar a programação.
+O _Veiaco_, na verdade, surgiu como uma piada. Eu estava com uns amigos – que diga-se de passagem estavam me devendo –, e então eu percebi que algumas outras pessoas estavam me devendo, então brincando, eu disse: "Vou ter que fazer uma nota fiscal pra cada um porque eu já esqueci o que cada um me deve" e então surgiu a ideia de criar um aplicativo pra resolver esse problema, pois além de não perder o dinheiro e a piada, eu posso ainda praticar a programação.
 
 ## Notas importantes
 
-1 -  **CUIDADO!** As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
+1 - **CUIDADO!** As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
 
 ## Galeria
+
 <div align="center">
 
 ### Esse é o _back-end_ do projeto Veiaco. Para mais informações visuais, [clique aqui](https://github.com/yagopeixinho/veiacoPlataforma)
@@ -91,7 +89,7 @@ PORT="3333"
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
 ```
 
-### 📁 Conectando ao banco de dados
+### ⚙️ Conectando ao banco de dados
 
 #### PostgreSQL
 
@@ -116,15 +114,18 @@ $ npx prisma migrate dev
 
 As informações foram geradas e agora o banco de dados está pronto pra receber e conceber informações.
 
-## Contributing
+> **Notas**
+> Caso tenha alguma dúvida e/ou problema durante a instalação do ambiente, [me deixe saber](https://github.com/yagopeixinho) o mais rápido possível!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris.
+## Contribuindo
 
-## Contacting
+Sinta-se a vontade para enviar quantos _pull request's_ forem necessários, as revisarei gradamente.
 
-- 📬 Lorem ipsum dolor sit amet: loremipsumdolor@sitamet.com
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at lacinia mauris. Donec consequat ligula sapien. Fusce vitae vestibulum diam. [Lacinia mauris](https://github.com/yagopeixinho/yagopeixinho/blob/master/README.md)
+## Contato
 
-## License
+- 📬 Me envie um e-mail: peixinhoyago@gmail.com
+- Se você tem alguma dúvida ou deseja entrar em contato comigo por qualquer outro motivo, encontre mais informações sobre mim [clicando aqui](https://github.com/yagopeixinho/yagopeixinho/blob/master/README.md).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Lorem ipsumm dolor siti](https://github.com/yagopeixinho/vouAoMercado/blob/master/LICENSE)
+## Licença
+
+Esse projeto está sobre o MIT License. [Clique aqui para mais informações](https://github.com/yagopeixinho/veiacoBackend/blob/master/LICENSE).
