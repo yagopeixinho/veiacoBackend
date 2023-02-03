@@ -13,36 +13,24 @@
   </a>
 </p>
 
+
+<div align="center">
+
+### Esse é o _back-end_ do projeto Veiaco. Para mais informações sobre o projeto, [clique aqui](https://github.com/yagopeixinho/veiacoPlataforma).
+
+</div>
+
 <p align="center">
-  <a href="#sobre">Sobre</a> •  
-  <a href="#por-quê">Por quê?</a> •
-  <a href="#notas-importantes">Notas importantes</a> •
-  <a href="#galeria">Galeria</a> •
   <a href="#instalação">Instalação</a> •
   <a href="#contribuindo">Contribuindo</a> •
   <a href="#contato">Contato</a> •
   <a href="#licença">Licença</a>
 </p>
 
-## Sobre o Veiaco
-
-Esse é o backend do Veiaco. O Veiaco é um aplicativo para que você possa gerenciar as pessoas que te devem dinheiro. "Veiaco" é um termo conhecido no Nordeste do Brasil que adjetiva pessoas que não costumam a pagar as suas dívidas e o APP surgiu na expectativa de ajudar as pessoas a cobrarem de forma sutil e cômica as pessoas que te devem.
-
-## Por quê?
-
-O _Veiaco_, na verdade, surgiu como uma piada. Eu estava com uns amigos – que diga-se de passagem estavam me devendo –, e então eu percebi que algumas outras pessoas estavam me devendo, então brincando, eu disse: "Vou ter que fazer uma nota fiscal pra cada um porque eu já esqueci o que cada um me deve" e então surgiu a ideia de criar um aplicativo pra resolver esse problema, pois além de não perder o dinheiro e a piada, eu posso ainda praticar a programação.
 
 ## Notas importantes
 
 1 - **CUIDADO!** As informações que estão indo para o banco de dados não estão criptografas então cuidado ao salvar informações sensíveis!
-
-## Galeria
-
-<div align="center">
-
-### Esse é o _back-end_ do projeto Veiaco. Para mais informações visuais, [clique aqui](https://github.com/yagopeixinho/veiacoPlataforma)
-
-</div>
 
 ## Instalação
 
@@ -114,7 +102,7 @@ $ npx prisma migrate dev
 
 As informações foram geradas e agora o banco de dados está pronto pra receber e conceber informações.
 
-> **Notas**
+> **Note**
 > Caso tenha alguma dúvida e/ou problema durante a instalação do ambiente, [me deixe saber](https://github.com/yagopeixinho) o mais rápido possível!
 
 ## Contribuindo
