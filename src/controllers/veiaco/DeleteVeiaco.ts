@@ -5,11 +5,10 @@ export class DeleteVeiacoController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
 
-    console.log(id);
     const _deleteVeiacoService = new DeleteVeiacoService();
 
-    const response = await _deleteVeiacoService.execute(parseInt(id));
-
-    return res.status(201).json(response);
+    await _deleteVeiacoService.execute(parseInt(id)).then(() => {
+      return { msg: "Usuário deletado com sucesso", status: 200 };
+    });
   }
 }

@@ -4,6 +4,7 @@ import { UpdateVeiacoController } from "../controllers/veiaco/UpdateVeiaco";
 import { isAuthenticated } from "../middlewares/isAuthenticated";
 import { GetVeiacoController } from "../controllers/veiaco/GetVeiaco";
 import { DeleteVeiacoController } from "../controllers/veiaco/DeleteVeiaco";
+import { createVeiacoDebtController } from "../controllers/veiaco/CreateVeiacoDebt";
 
 export const veiacoRoutes = Router();
 
@@ -14,11 +15,15 @@ export const veiacoRoutes = Router();
  * Private routes */
 
 // GET
-veiacoRoutes.get("/debts", isAuthenticated);
 veiacoRoutes.get("/:id", isAuthenticated, new GetVeiacoController().handle);
 
 // POST
 veiacoRoutes.post("/", isAuthenticated, new CreateVeiacoController().handle);
+veiacoRoutes.post(
+  "/debt",
+  isAuthenticated,
+  new createVeiacoDebtController().handle
+);
 
 // PUT
 veiacoRoutes.put("/:id", isAuthenticated, new UpdateVeiacoController().handle);

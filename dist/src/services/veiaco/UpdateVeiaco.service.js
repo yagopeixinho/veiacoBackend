@@ -9,25 +9,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserController = void 0;
-const CreateUser_service_1 = require("../../services/user/CreateUser.service");
-class CreateUserController {
-    handle(req, res) {
+exports.UpdateVeiacoService = void 0;
+const client_1 = require("../../config/prisma/client");
+class UpdateVeiacoService {
+    execute({ name, phone, veiacoId }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = req.body;
-            const _createUserService = new CreateUser_service_1.CreateUserService();
-            try {
-                const response = yield _createUserService.execute({
+            const veiaco = yield client_1.prisma.veiaco.update({
+                where: {
+                    id: veiacoId,
+                },
+                data: {
                     name,
-                    email,
-                    password,
-                });
-                res.status(201).json(response);
-            }
-            catch (err) {
-                res.status(400).json({ error: err });
-            }
+                    phone,
+                },
+            });
+            return veiaco;
         });
     }
 }
-exports.CreateUserController = CreateUserController;
+exports.UpdateVeiacoService = UpdateVeiacoService;

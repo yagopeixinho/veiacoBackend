@@ -9,25 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserController = void 0;
-const CreateUser_service_1 = require("../../services/user/CreateUser.service");
-class CreateUserController {
+exports.GetVeiacoController = void 0;
+const GetVeiaco_service_1 = require("../../services/veiaco/GetVeiaco.service");
+class GetVeiacoController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = req.body;
-            const _createUserService = new CreateUser_service_1.CreateUserService();
-            try {
-                const response = yield _createUserService.execute({
-                    name,
-                    email,
-                    password,
-                });
-                res.status(201).json(response);
-            }
-            catch (err) {
-                res.status(400).json({ error: err });
-            }
+            const { id } = req.params;
+            const _getVeiacoService = new GetVeiaco_service_1.GetVeiacoService();
+            const response = yield _getVeiacoService.execute(parseInt(id));
+            res.status(201).json(response);
         });
     }
 }
-exports.CreateUserController = CreateUserController;
+exports.GetVeiacoController = GetVeiacoController;

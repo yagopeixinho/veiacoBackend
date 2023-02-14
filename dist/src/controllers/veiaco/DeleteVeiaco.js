@@ -9,25 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserController = void 0;
-const CreateUser_service_1 = require("../../services/user/CreateUser.service");
-class CreateUserController {
+exports.DeleteVeiacoController = void 0;
+const DeleteVeiaco_service_1 = require("../../services/veiaco/DeleteVeiaco.service");
+class DeleteVeiacoController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = req.body;
-            const _createUserService = new CreateUser_service_1.CreateUserService();
-            try {
-                const response = yield _createUserService.execute({
-                    name,
-                    email,
-                    password,
-                });
-                res.status(201).json(response);
-            }
-            catch (err) {
-                res.status(400).json({ error: err });
-            }
+            const { id } = req.params;
+            const _deleteVeiacoService = new DeleteVeiaco_service_1.DeleteVeiacoService();
+            const response = yield _deleteVeiacoService
+                .execute(parseInt(id))
+                .then(() => {
+                return { msg: "Usuário deletado com sucesso", status: 200 };
+            });
         });
     }
 }
-exports.CreateUserController = CreateUserController;
+exports.DeleteVeiacoController = DeleteVeiacoController;

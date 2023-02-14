@@ -8,40 +8,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthUserService = void 0;
-const appError_1 = require("../../helpers/appError");
+exports.GetLoggedUserService = void 0;
 const client_1 = require("../../config/prisma/client");
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-require("dotenv").config();
-class AuthUserService {
-    execute({ email, password }) {
+class GetLoggedUserService {
+    execute({ id }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const user = yield client_1.prisma.user.findFirst({
-                where: { email: email },
+            const loggedUser = yield client_1.prisma.user.findFirst({
+                where: {
+                    id: id,
+                },
                 include: {
+                    veiaco: true,
                     debt: {
                         include: {
                             veiaco: true,
                         },
                     },
-                    veiaco: true,
                 },
             });
-            if (!user) {
-                throw new appError_1.UnauthorizedError("Usuário ou senha inválida...");
-            }
-            if (user.password !== password) {
-                throw new appError_1.UnauthorizedError("Usuário ou senha inválida...");
-            }
-            const token = jsonwebtoken_1.default.sign({ id: user === null || user === void 0 ? void 0 : user.id, user: user }, "secret", {
-                expiresIn: "7d",
-            });
-            return token;
+            return loggedUser;
         });
     }
 }
-exports.AuthUserService = AuthUserService;
+exports.GetLoggedUserService = GetLoggedUserService;

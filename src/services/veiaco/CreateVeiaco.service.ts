@@ -4,6 +4,7 @@ import { CreateVeiacoDTO } from "../../types/CreateVeiacoDTO";
 
 export class CreateVeiacoService {
   async execute({ name, phone, userId }: CreateVeiacoDTO): Promise<Veiaco> {
+
     const veiacoCreated = await prisma.veiaco.create({
       data: {
         name: name,

@@ -8,26 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserController = void 0;
-const CreateUser_service_1 = require("../../services/user/CreateUser.service");
-class CreateUserController {
+const GetUserVeiacos_service_1 = __importDefault(require("../../services/user/GetUserVeiacos.service"));
+class GetUserVeiacosController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = req.body;
-            const _createUserService = new CreateUser_service_1.CreateUserService();
-            try {
-                const response = yield _createUserService.execute({
-                    name,
-                    email,
-                    password,
-                });
-                res.status(201).json(response);
-            }
-            catch (err) {
-                res.status(400).json({ error: err });
-            }
+            const { id } = req;
+            const _getUserVeiacosService = new GetUserVeiacos_service_1.default();
+            const response = yield _getUserVeiacosService.execute({ id });
+            res.status(201).json(response);
         });
     }
 }
-exports.CreateUserController = CreateUserController;
+exports.default = GetUserVeiacosController;

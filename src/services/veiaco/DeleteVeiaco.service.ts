@@ -8,6 +8,6 @@ export class DeleteVeiacoService {
       },
     });
 
-    console.log(deletedVeiaco);
+    return deletedVeiaco;
   }
 }

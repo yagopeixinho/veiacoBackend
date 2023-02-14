@@ -9,25 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserController = void 0;
-const CreateUser_service_1 = require("../../services/user/CreateUser.service");
-class CreateUserController {
+exports.GetLoggedUserController = void 0;
+const GetLoggedUser_service_1 = require("../../services/user/GetLoggedUser.service");
+class GetLoggedUserController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, email, password } = req.body;
-            const _createUserService = new CreateUser_service_1.CreateUserService();
-            try {
-                const response = yield _createUserService.execute({
-                    name,
-                    email,
-                    password,
-                });
-                res.status(201).json(response);
-            }
-            catch (err) {
-                res.status(400).json({ error: err });
-            }
+            const { id } = req;
+            const _getLoggedUserService = new GetLoggedUser_service_1.GetLoggedUserService();
+            const response = yield _getLoggedUserService.execute({ id });
+            res.status(201).json(response);
         });
     }
 }
-exports.CreateUserController = CreateUserController;
+exports.GetLoggedUserController = GetLoggedUserController;
