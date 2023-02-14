@@ -10,21 +10,27 @@ export class CreateDebtService {
     user_id,
     veiaco_id,
   }: CreateDebtDTO): Promise<Debt> {
+    console.log(title);
+    console.log(value);
+    console.log(date);
+    console.log(user_id);
+    console.log(veiaco_id);
     const debt = await prisma.debt.create({
       data: {
-        title,
-        value,
-        date,
-        user: {
-          connect: {
-            id: user_id,
-          },
-        },
+        title: title,
+        value: value,
+        date: date,
+       
         veiaco: {
           connect: {
             id: veiaco_id,
           },
         },
+        user: {
+          // connectOrCreate: {
+
+          // }
+        }
       },
     });
 

@@ -16,9 +16,7 @@ class DeleteVeiacoController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const _deleteVeiacoService = new DeleteVeiaco_service_1.DeleteVeiacoService();
-            const response = yield _deleteVeiacoService
-                .execute(parseInt(id))
-                .then(() => {
+            yield _deleteVeiacoService.execute(parseInt(id)).then(() => {
                 return { msg: "Usuário deletado com sucesso", status: 200 };
             });
         });

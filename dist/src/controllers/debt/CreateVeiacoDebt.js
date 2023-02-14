@@ -9,18 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeleteVeiacoService = void 0;
-const client_1 = require("../../config/prisma/client");
-class DeleteVeiacoService {
-    execute(id) {
+exports.createVeiacoDebtController = void 0;
+class createVeiacoDebtController {
+    // info necessária
+    // idUsuario, idVeiaco
+    handle() {
         return __awaiter(this, void 0, void 0, function* () {
-            const deletedVeiaco = yield client_1.prisma.veiaco.delete({
-                where: {
-                    id,
-                },
-            });
-            return deletedVeiaco;
+            console.log("Criando dívida");
         });
     }
 }
-exports.DeleteVeiacoService = DeleteVeiacoService;
+exports.createVeiacoDebtController = createVeiacoDebtController;

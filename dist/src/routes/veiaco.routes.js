@@ -7,16 +7,17 @@ const UpdateVeiaco_1 = require("../controllers/veiaco/UpdateVeiaco");
 const isAuthenticated_1 = require("../middlewares/isAuthenticated");
 const GetVeiaco_1 = require("../controllers/veiaco/GetVeiaco");
 const DeleteVeiaco_1 = require("../controllers/veiaco/DeleteVeiaco");
+const CreateVeiacoDebt_1 = require("../controllers/debt/CreateVeiacoDebt");
 exports.veiacoRoutes = (0, express_1.Router)();
 /****
  * Public routes */
 /****
  * Private routes */
 // GET
-exports.veiacoRoutes.get("/debts", isAuthenticated_1.isAuthenticated);
 exports.veiacoRoutes.get("/:id", isAuthenticated_1.isAuthenticated, new GetVeiaco_1.GetVeiacoController().handle);
 // POST
 exports.veiacoRoutes.post("/", isAuthenticated_1.isAuthenticated, new CreateVeiaco_1.CreateVeiacoController().handle);
+exports.veiacoRoutes.post("/debt", isAuthenticated_1.isAuthenticated, new CreateVeiacoDebt_1.createVeiacoDebtController().handle);
 // PUT
 exports.veiacoRoutes.put("/:id", isAuthenticated_1.isAuthenticated, new UpdateVeiaco_1.UpdateVeiacoController().handle);
 // DELETE

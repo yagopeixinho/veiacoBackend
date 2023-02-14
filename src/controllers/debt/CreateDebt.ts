@@ -5,6 +5,7 @@ import { CreateDebtService } from "../../services/debt/CreateDebt.service";
 export class CreateDebtController {
   async handle(req: Request, res: Response) {
     const { title, value, date, user_id, veiaco_id }: CreateDebtDTO = req.body;
+    console.log("Passou pelo CreateDebtController");
 
     const _createDebtService = new CreateDebtService();
 

@@ -15,6 +15,7 @@ class CreateDebtController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { title, value, date, user_id, veiaco_id } = req.body;
+            console.log("Passou pelo CreateDebtController");
             const _createDebtService = new CreateDebt_service_1.CreateDebtService();
             const response = yield _createDebtService.execute({
                 title,

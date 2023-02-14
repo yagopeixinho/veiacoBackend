@@ -14,21 +14,26 @@ const client_1 = require("../../config/prisma/client");
 class CreateDebtService {
     execute({ title, value, date, user_id, veiaco_id, }) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(title);
+            console.log(value);
+            console.log(date);
+            console.log(user_id);
+            console.log(veiaco_id);
             const debt = yield client_1.prisma.debt.create({
                 data: {
-                    title,
-                    value,
-                    date,
-                    user: {
-                        connect: {
-                            id: user_id,
-                        },
-                    },
-                    veiaco: {
-                        connect: {
-                            id: veiaco_id,
-                        },
-                    },
+                    title: title,
+                    value: value,
+                    date: date,
+                    // user: {
+                    //   connect: {
+                    //     id: user_id,
+                    //   },
+                    // },
+                    // veiaco: {
+                    //   connect: {
+                    //     id: veiaco_id,
+                    //   },
+                    // },
                 },
             });
             return debt;

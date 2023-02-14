@@ -4,7 +4,7 @@ import { UpdateVeiacoController } from "../controllers/veiaco/UpdateVeiaco";
 import { isAuthenticated } from "../middlewares/isAuthenticated";
 import { GetVeiacoController } from "../controllers/veiaco/GetVeiaco";
 import { DeleteVeiacoController } from "../controllers/veiaco/DeleteVeiaco";
-import { createVeiacoDebtController } from "../controllers/veiaco/CreateVeiacoDebt";
+import { createVeiacoDebtController } from "../controllers/debt/CreateVeiacoDebt";
 
 export const veiacoRoutes = Router();
 
