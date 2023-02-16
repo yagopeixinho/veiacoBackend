@@ -18,6 +18,9 @@ class GetVeiacoService {
                 where: {
                     id,
                 },
+                include: {
+                    debt: true,
+                },
             });
             return veiaco;
         });

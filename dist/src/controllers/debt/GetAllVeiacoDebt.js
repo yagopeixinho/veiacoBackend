@@ -9,14 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createVeiacoDebtController = void 0;
-class createVeiacoDebtController {
-    // info necessária
-    // idUsuario, idVeiaco
+exports.GetAllVeiacoController = void 0;
+class GetAllVeiacoController {
     handle() {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("Criando dívida");
         });
     }
 }
-exports.createVeiacoDebtController = createVeiacoDebtController;
+exports.GetAllVeiacoController = GetAllVeiacoController;

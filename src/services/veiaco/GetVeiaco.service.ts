@@ -7,6 +7,9 @@ export class GetVeiacoService {
       where: {
         id,
       },
+      include: {
+        debt: true,
+      },
     });
 
     return veiaco as any;

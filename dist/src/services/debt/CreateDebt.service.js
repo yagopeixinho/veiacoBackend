@@ -24,16 +24,15 @@ class CreateDebtService {
                     title: title,
                     value: value,
                     date: date,
-                    // user: {
-                    //   connect: {
-                    //     id: user_id,
-                    //   },
-                    // },
-                    // veiaco: {
-                    //   connect: {
-                    //     id: veiaco_id,
-                    //   },
-                    // },
+                    veiaco: {
+                        connect: {
+                            id: veiaco_id,
+                        },
+                    },
+                    user: {
+                    // connectOrCreate: {
+                    // }
+                    }
                 },
             });
             return debt;

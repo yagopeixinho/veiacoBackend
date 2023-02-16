@@ -9,23 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateDebtController = void 0;
-const CreateDebt_service_1 = require("../../services/debt/CreateDebt.service");
-class CreateDebtController {
-    handle(req, res) {
+exports.GetAllVeiacoDebtService = void 0;
+class GetAllVeiacoDebtService {
+    execute() {
         return __awaiter(this, void 0, void 0, function* () {
-            const { title, value, date, user_id, veiaco_id } = req.body;
-            const _createDebtService = new CreateDebt_service_1.CreateDebtService();
-            const response = yield _createDebtService.execute({
-                title,
-                value,
-                date,
-                user_id,
-                veiaco_id,
-            });
-            console.dir(response);
-            res.status(201).json(response);
         });
     }
 }
-exports.CreateDebtController = CreateDebtController;
+exports.GetAllVeiacoDebtService = GetAllVeiacoDebtService;
