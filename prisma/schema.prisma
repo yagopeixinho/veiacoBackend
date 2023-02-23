@@ -18,7 +18,7 @@ model User {
 
   //""""Relationship
   veiaco Veiaco[]
-  debt Debt[]
+  debt   Debt[]
 
   @@map("usuarios")
 }
@@ -38,14 +38,15 @@ model Veiaco {
 }
 
 model Debt {
-  id    Int      @id @default(autoincrement())
-  title String
-  value Float
-  date  DateTime?
+  id     Int       @id @default(autoincrement())
+  title  String
+  value  Float
+  date   DateTime?
+  status Boolean   @default(true)
 
   //""""Relationships
   veiaco Veiaco[]
-  user User[]
+  user   User[]
 
   @@map("dividas")
 }
