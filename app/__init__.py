@@ -1,8 +1,7 @@
-from flask import Flask, Request, Response
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_migrate import Migrate
-import json
 
 
 db = SQLAlchemy()

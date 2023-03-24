@@ -1,4 +1,10 @@
 from app import db
+from werkzeug.security import check_password_hash, generate_password_hash
+from passlib.apps import custom_app_context as pwd_context
+import jwt
+from datetime import datetime, timedelta
+import base64
+import os
 
 # Association Tables
 veiaco_has_debt = db.Table('Veiaco_has_Debt',
@@ -10,8 +16,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, unique=True, nullable=False)
     email = db.Column(db.String(120), index=True, unique=True, nullable=False)
-    password = db.Column(db.String(128))
-    
+    password_hash = db.Column(db.String(128))
+
     # Relationships fields
 
     # Relationships
@@ -23,6 +29,13 @@ class User(db.Model):
     def to_dict(self):
         return {"id": self.id, "name": self.name, "email": self.email}
     
+    def hash_pasword(self, password):
+        self.password_hash = pwd_context.encrypt(password)
+        
+    def verify_password(self, password):
+        return pwd_context.verify(password, self.password_hash)
+
+        
     
 class Veiaco(db.Model):
     id = db.Column(db.Integer, primary_key=True)
