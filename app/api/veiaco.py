@@ -1,0 +1,121 @@
+from flask import Response, request
+from app.api import bp
+from app.api.auth import token_required
+from app.models import Veiaco
+from app import db
+from app.utils import veiacoResponse
+
+
+
+@bp.route('/veiaco', methods=['POST'])
+@token_required
+def create_veiaco(current_user):
+    """
+    @api /veiaco
+    Create a Veiaco
+    """
+    
+    body = request.get_json()
+    
+    try:
+        veiaco = Veiaco(name=body['name'], email=body['email'], phone=body['phone'], user=current_user)
+
+        db.session.add(veiaco)
+        db.session.commit()
+        
+        return veiacoResponse(201, 'veiaco', veiaco.to_dict(), "Success")
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, 'veiaco', {}, 'Error trying to create')
+    
+
+@bp.route('/veiaco', methods=['GET'])
+@token_required
+def get_veiacos(current_user):
+    """"
+    @api /veiaco
+    Return a User Veiaco List
+    """ 
+       
+    try:
+        veiacos = Veiaco.query.filter_by(user_id=current_user.id)
+        
+        veiacos_list_json = [veiaco.to_dict() for veiaco in veiacos]
+                
+        return veiacoResponse(200, 'veiacos', veiacos_list_json)
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, 'veiaco', [], 'Error when trying to catch Veiacos')
+    
+    
+@bp.route('/veiaco/<id>', methods=['GET'])
+@token_required
+def get_veiaco(current_user, id):
+    """"
+    @api /veiaco/id
+    Return a User Veiaco
+    """ 
+    
+    try:
+        veiaco = Veiaco.query.filter_by(id=id).first()
+        
+        return veiacoResponse(200, 'veiaco', veiaco.to_dict())
+        
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, 'veiaco', [], 'Error when trying to catch Veiaco')
+    
+    
+@bp.route('/veiaco/<id>', methods=['PUT'])
+@token_required
+def edit_veiaco(current_user, id):
+    """
+    @api /veiaco/id
+    Edit a Veiaco data
+    """
+    
+    try:
+        veiaco_data = Veiaco.query.filter_by(id=id).first()
+        body = request.get_json()
+        
+        if 'name' in body:
+            veiaco_data.name = body['name']
+        if 'email' in body:
+            veiaco_data.email = body['email']
+        if 'phone' in body:
+            veiaco_data.phone = body['phone']
+            
+        db.session.add(veiaco_data)
+        db.session.commit()
+        
+        return veiacoResponse(200, 'veiaco', veiaco_data.to_dict())
+        
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, 'veiaco', [], 'Error when trying to update Veiaco')
+    
+    
+@bp.route('/veiaco/<id>', methods=['DELETE'])
+@token_required
+def delete_user(current_user, id):
+    """
+    @api /veiaco/id
+    Delete Veiaco
+    """
+    
+    try:
+        veiaco = Veiaco.query.filter_by(id=id).first()
+        
+        db.session.delete(veiaco)
+        db.session.commit()
+        
+        return veiacoResponse(200, 'veiaco', veiaco.to_dict(), "Veiaco deleted!")
+
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, 'veiaco', {}, 'Something went wrong when trying to delete Veiaco')
+    
+    
+    
+    
+    

@@ -52,6 +52,10 @@ class Veiaco(db.Model):
     def __repr__(self):
         return '<Veiaco {}, ID: {}>'.format(self.name, self.id)
     
+    def to_dict(self):
+        return {"id": self.id, "name": self.name, "email": self.email, "phone": self.phone, "user_id": self.user_id}
+    
+    
 
 class Debt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
