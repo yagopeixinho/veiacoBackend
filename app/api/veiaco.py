@@ -18,15 +18,15 @@ def create_veiaco(current_user):
     body = request.get_json()
     
     try:
-        veiaco = Veiaco(name=body['name'], email=body['email'], phone=body['phone'], user=current_user)
+        veiaco = Veiaco(name=body['name'], email=body['email'], phone=body['phone'], occupation=body['occupation'], user=current_user)
 
         db.session.add(veiaco)
         db.session.commit()
         
-        return veiacoResponse(201, 'veiaco', veiaco.to_dict(), "Success")
+        return veiacoResponse(201, veiaco.to_dict(), "Success")
     except Exception as e:
         print('Error:', e)
-        return veiacoResponse(400, 'veiaco', {}, 'Error trying to create')
+        return veiacoResponse(400, {}, 'Error trying to create')
     
 
 @bp.route('/veiaco', methods=['GET'])
@@ -42,10 +42,10 @@ def get_veiacos(current_user):
         
         veiacos_list_json = [veiaco.to_dict() for veiaco in veiacos]
                 
-        return veiacoResponse(200, 'veiacos', veiacos_list_json)
+        return veiacoResponse(200, veiacos_list_json)
     except Exception as e:
         print('Error:', e)
-        return veiacoResponse(400, 'veiaco', [], 'Error when trying to catch Veiacos')
+        return veiacoResponse(400, [], 'Error when trying to catch Veiacos')
     
     
 @bp.route('/veiaco/<id>', methods=['GET'])
@@ -59,11 +59,11 @@ def get_veiaco(current_user, id):
     try:
         veiaco = Veiaco.query.filter_by(id=id).first()
         
-        return veiacoResponse(200, 'veiaco', veiaco.to_dict())
+        return veiacoResponse(200, veiaco.to_dict())
         
     except Exception as e:
         print('Error:', e)
-        return veiacoResponse(400, 'veiaco', [], 'Error when trying to catch Veiaco')
+        return veiacoResponse(400, [], 'Error when trying to catch Veiaco')
     
     
 @bp.route('/veiaco/<id>', methods=['PUT'])
@@ -84,15 +84,17 @@ def edit_veiaco(current_user, id):
             veiaco_data.email = body['email']
         if 'phone' in body:
             veiaco_data.phone = body['phone']
+        if 'occupation' in body:
+            veiaco_data.occupation = body['occupation']
             
         db.session.add(veiaco_data)
         db.session.commit()
         
-        return veiacoResponse(200, 'veiaco', veiaco_data.to_dict())
+        return veiacoResponse(200, veiaco_data.to_dict())
         
     except Exception as e:
         print('Error:', e)
-        return veiacoResponse(400, 'veiaco', [], 'Error when trying to update Veiaco')
+        return veiacoResponse(400, [], 'Error when trying to update Veiaco')
     
     
 @bp.route('/veiaco/<id>', methods=['DELETE'])
@@ -109,11 +111,11 @@ def delete_user(current_user, id):
         db.session.delete(veiaco)
         db.session.commit()
         
-        return veiacoResponse(200, 'veiaco', veiaco.to_dict(), "Veiaco deleted!")
+        return veiacoResponse(200, veiaco.to_dict(), "Veiaco deleted!")
 
     except Exception as e:
         print('Error:', e)
-        return veiacoResponse(400, 'veiaco', {}, 'Something went wrong when trying to delete Veiaco')
+        return veiacoResponse(400, {}, 'Something went wrong when trying to delete Veiaco')
     
     
     

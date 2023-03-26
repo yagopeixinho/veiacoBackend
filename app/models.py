@@ -42,6 +42,7 @@ class Veiaco(db.Model):
     name = db.Column(db.String(20), index=True, nullable=False)
     email = db.Column(db.String(120), index=True)
     phone = db.Column(db.String(40))
+    occupation = db.Column(db.String(40))
     
     # Relationships fields
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -53,7 +54,7 @@ class Veiaco(db.Model):
         return '<Veiaco {}, ID: {}>'.format(self.name, self.id)
     
     def to_dict(self):
-        return {"id": self.id, "name": self.name, "email": self.email, "phone": self.phone, "user_id": self.user_id}
+        return {"id": self.id, "name": self.name, "email": self.email, "phone": self.phone, "occupation": self.occupation, "user_id": self.user_id}
     
     
 
@@ -64,13 +65,16 @@ class Debt(db.Model):
     open = db.Column(db.Boolean)
     
     # Relationships fields
-    category_name = db.Column(db.String, db.ForeignKey('category.name'), nullable=False)
+    category_id = db.Column(db.String, db.ForeignKey('category.id'), nullable=False)
 
     # Relationships
 
     
     def __repr__(self):
         return '<Debt {}, ID: {}>'.format(self.name, self.id)
+    
+    def to_dict(self):
+        return {'id': self.id, 'name': self.id, 'status': self.open, 'value': self.value}
     
 
 class Category(db.Model):
@@ -81,4 +85,10 @@ class Category(db.Model):
 
     # Relationships
     debt = db.relationship('Debt', backref='category', lazy=True)
+    
+    def __repr__(self):
+        return '<Category {}, ID: {}>'.format(self.name, self.id)
+
+    def to_dict(self):
+        return {'id': self.id, 'name': self.name}
     
