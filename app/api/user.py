@@ -22,7 +22,7 @@ def create_user(current_user):
     body = request.get_json()
 
     try:
-        user = User(name=body['name'], email=body['email'], login=body['email'])
+        user = User(name=body['name'], email=body['email'])
         user.hash_pasword(body['password'])
         
         db.session.add(user)

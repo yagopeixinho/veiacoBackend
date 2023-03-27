@@ -17,6 +17,7 @@ def create_post(current_user):
     
     try:
         debt = Debt(name=body['name'], value=body['value'], open=body['open'], category_id=body['category_id'])
+        
         veiaco = Veiaco.query.filter_by(id=body['veiaco_id']).first()
         
         veiaco.veiaco_has_debt.append(debt)
@@ -28,7 +29,7 @@ def create_post(current_user):
         print('Error:', e)
         return veiacoResponse(400, {}, 'Error trying to create')
 
-    
+
 
 
 

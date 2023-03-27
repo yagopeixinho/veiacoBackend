@@ -47,8 +47,7 @@ class Veiaco(db.Model):
     # Relationships fields
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
-    # # Relationships
-    veiaco_has_debt = db.relationship('Debt', secondary=veiaco_has_debt, lazy='subquery', backref=db.backref('Debt', lazy=True))
+    # Relationships
     
     def __repr__(self):
         return '<Veiaco {}, ID: {}>'.format(self.name, self.id)
@@ -68,6 +67,7 @@ class Debt(db.Model):
     category_id = db.Column(db.String, db.ForeignKey('category.id'), nullable=False)
 
     # Relationships
+    veiaco_has_debt = db.relationship('Debt', secondary=veiaco_has_debt, lazy='subquery', backref=db.backref('Debt', lazy=True))
 
     
     def __repr__(self):

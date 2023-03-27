@@ -27,3 +27,24 @@ def create_category(current_user):
     except Exception as e:
         print('Error: ', e)
         return veiacoResponse(400, {}, 'Error trying to create category')
+
+
+
+@bp.route('/category', methods=['GET'])
+@token_required
+def list_categories(current_user):
+    """
+    @api /category
+    Return a category list
+    """
+    
+    try:
+        categories = Category.query.all()
+        
+        category_list_json = [category.to_dict() for category in categories]
+                
+        return veiacoResponse(200, category_list_json)
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, [], 'Error when trying to catch Categories')
+        

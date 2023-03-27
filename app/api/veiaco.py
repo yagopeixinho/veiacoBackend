@@ -1,7 +1,7 @@
 from flask import Response, request
 from app.api import bp
 from app.api.auth import token_required
-from app.models import Veiaco
+from app.models import Veiaco, Debt, veiaco_has_debt
 from app import db
 from app.utils import veiacoResponse
 
@@ -66,6 +66,28 @@ def get_veiaco(current_user, id):
         return veiacoResponse(400, [], 'Error when trying to catch Veiaco')
     
     
+@bp.route('/veiaco/<id>/debt', methods=['GET'])
+@token_required
+def get_veiaco_debts(current_user, id):
+    """
+    @api /veiaco/id/debt
+    Get Veiaco Debts List
+    """    
+    
+    # try:
+        # veiaco_debts = 
+        # print(veiaco_debts)
+        
+        # category_list_json = [item.to_dict() for item in veiaco_debts]
+        
+        # print(category_list_json)
+       
+        
+    # except Exception as e:
+    #     print('Error:', e)
+    #     return veiacoResponse(400, [], 'Error when trying to update Veiaco')
+    
+    
 @bp.route('/veiaco/<id>', methods=['PUT'])
 @token_required
 def edit_veiaco(current_user, id):
@@ -117,7 +139,8 @@ def delete_user(current_user, id):
         print('Error:', e)
         return veiacoResponse(400, {}, 'Something went wrong when trying to delete Veiaco')
     
-    
+
+
     
     
     
