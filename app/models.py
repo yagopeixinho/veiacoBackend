@@ -5,6 +5,7 @@ import jwt
 from datetime import datetime, timedelta
 import base64
 import os
+import datetime
 
 # Association Tables
 veiaco_has_debt = db.Table('Veiaco_has_Debt',
@@ -17,6 +18,8 @@ class User(db.Model):
     name = db.Column(db.String(64), index=True, unique=True, nullable=False)
     email = db.Column(db.String(120), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
+    created_on = db.Column(db.DateTime, server_default=db.func.now())
+    updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
     # Relationships fields
 
@@ -43,12 +46,15 @@ class Veiaco(db.Model):
     email = db.Column(db.String(120), index=True)
     phone = db.Column(db.String(40))
     occupation = db.Column(db.String(40))
-    
+    created_on = db.Column(db.DateTime, server_default=db.func.now())
+    updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+
     # Relationships fields
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     # Relationships
-    
+    veiaco_has_debt = db.relationship('Debt', secondary=veiaco_has_debt, lazy='subquery', backref=db.backref('Debt', lazy=True))
+        
     def __repr__(self):
         return '<Veiaco {}, ID: {}>'.format(self.name, self.id)
     
@@ -61,26 +67,32 @@ class Debt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True)
     value = db.Column(db.Float)
-    open = db.Column(db.Boolean)
-    
+    status = db.Column(db.Boolean)
+    date = db.Column(db.DateTime)
+    created_on = db.Column(db.DateTime, server_default=db.func.now())
+    updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+
     # Relationships fields
     category_id = db.Column(db.String, db.ForeignKey('category.id'), nullable=False)
 
     # Relationships
-    veiaco_has_debt = db.relationship('Debt', secondary=veiaco_has_debt, lazy='subquery', backref=db.backref('Debt', lazy=True))
 
     
     def __repr__(self):
         return '<Debt {}, ID: {}>'.format(self.name, self.id)
     
     def to_dict(self):
-        return {'id': self.id, 'name': self.id, 'status': self.open, 'value': self.value}
+        category = Category.query.filter_by(id=self.category_id).first()
+                
+        return {'id': self.id, 'name': self.name, 'status': self.status, 'value': self.value, 'category': category.to_dict(), "date": self.date.strftime("%d/%m/%Y"), 'created_on': self.created_on.strftime("%d/%m/%Y")}
     
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), index=True)
-    
+    created_on = db.Column(db.DateTime, server_default=db.func.now())
+    updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+
     # Relationships fields
 
     # Relationships

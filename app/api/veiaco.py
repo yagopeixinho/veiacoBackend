@@ -74,18 +74,15 @@ def get_veiaco_debts(current_user, id):
     Get Veiaco Debts List
     """    
     
-    # try:
-        # veiaco_debts = 
-        # print(veiaco_debts)
+    try:
+        veiaco_debts = Debt.query.join(Veiaco.veiaco_has_debt).filter(Veiaco.id == id).all()
         
-        # category_list_json = [item.to_dict() for item in veiaco_debts]
+        veiaco_debt_list = [debt.to_dict() for debt in veiaco_debts]
         
-        # print(category_list_json)
-       
-        
-    # except Exception as e:
-    #     print('Error:', e)
-    #     return veiacoResponse(400, [], 'Error when trying to update Veiaco')
+        return veiacoResponse(201, veiaco_debt_list)
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, [], 'Error when trying to update Veiaco')
     
     
 @bp.route('/veiaco/<id>', methods=['PUT'])
