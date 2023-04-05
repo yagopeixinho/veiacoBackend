@@ -4,7 +4,7 @@ from app.models import User
 from app import db
 import json
 from app.api.auth import token_required
-
+from app.utils import veiacoResponse
 
 @bp.route('/users', methods=['GET'])
 @token_required
@@ -28,7 +28,7 @@ def create_user(current_user):
         db.session.add(user)
         db.session.commit()
      
-        return Response(json.dumps({"email": user.email}), status=201, mimetype="application/json")
+        return veiacoResponse(200, user.to_dict(), "User created successfuly.")
     except Exception as e:
         print('Error', e)
         
