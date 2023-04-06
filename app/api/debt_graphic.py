@@ -45,7 +45,7 @@ def get_pie_chart(current_user, id):
     
     debt_list_json = [debt.to_dict() for debt in debts]
     
-    print(debt_list_json)
+    return veiacoResponse(201, debt_list_json)
     
   
     
