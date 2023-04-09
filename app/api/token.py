@@ -24,4 +24,4 @@ def login():
     
     token = jwt.encode(payload, os.getenv("SECRET_KEY"))
     
-    return jsonify({'token': token})
+    return jsonify({'token': token, 'user': user.to_dict()})

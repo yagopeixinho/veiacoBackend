@@ -17,11 +17,18 @@ def create_veiaco(current_user):
     
     body = request.get_json()
     
+    requireds = ['name']
+    absent = [field for field in requireds if field not in body]
+    
+    if len(absent) > 0:
+        return veiacoResponse(400, {'msg': 'Field not found'})
+    
     try:
-        veiaco = Veiaco(name=body['name'], email=body['email'], phone=body['phone'], occupation=body['occupation'], user=current_user)
+        veiaco = Veiaco(user=current_user)
+        veiaco.from_dict(body)
 
         db.session.add(veiaco)
-        db.session.commit()
+        db.session.commit() 
         
         return veiacoResponse(201, veiaco.to_dict(), "Success")
     except Exception as e:

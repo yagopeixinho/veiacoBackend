@@ -61,6 +61,11 @@ class Veiaco(db.Model):
     def to_dict(self):
         return {"id": self.id, "name": self.name, "email": self.email, "phone": self.phone, "occupation": self.occupation, "user_id": self.user_id}
     
+    def from_dict(self, data):
+        for field in ['name', 'email', 'phone', 'occupation', 'created_on', 'updated_on']:
+            if field in data:
+                setattr(self, field, data[field])
+    
     
 
 class Debt(db.Model):
