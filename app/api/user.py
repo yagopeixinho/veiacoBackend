@@ -17,8 +17,7 @@ def get_users(current_user):
 
 
 @bp.route('/users', methods=['POST'])
-@token_required
-def create_user(current_user):
+def create_user():
     body = request.get_json()
 
     try:

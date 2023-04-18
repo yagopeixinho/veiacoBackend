@@ -73,7 +73,7 @@ class Debt(db.Model):
     name = db.Column(db.String(120), index=True)
     value = db.Column(db.Float)
     status = db.Column(db.Boolean)
-    date = db.Column(db.DateTime)
+    date = db.Column(db.DateTime, default=False)
     created_on = db.Column(db.DateTime, server_default=db.func.now())
     updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
@@ -89,7 +89,7 @@ class Debt(db.Model):
     def to_dict(self):
         category = Category.query.filter_by(id=self.category_id).first()
                 
-        return {'id': self.id, 'name': self.name, 'status': self.status, 'value': self.value, 'category': category.to_dict(), "date": self.date.strftime("%d/%m/%Y"), 'created_on': self.created_on.strftime("%d/%m/%Y")}
+        return {'id': self.id, 'name': self.name, 'status': self.status, 'value': self.value, 'category': category.to_dict(), "date": self.date.strftime("%Y-%m-%d %H:%M:%S"), 'created_on': self.created_on.strftime("%Y-%m-%d %H:%M:%S")}
     
 
 class Category(db.Model):

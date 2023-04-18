@@ -4,7 +4,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # Database Options
-    SQLALCHEMY_DATABASE_URI =\
-        'sqlite:///' + os.path.join(basedir, 'database.db')
-    SQLALCHEMY_TRACK_MODIFICATIONS = FalseLCHEMY_DATABASE_URI='sqlite:///app.db'
+    MYSQL_HOST= 'localhost'
+    MYSQL_USER= 'root'
+    MYSQL_PASSWORD= '734946'
+    MYSQL_DB= 'root'
+    MYSQL_PORT= '3306'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:734946@localhost/veiaco'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     CORS_HEADERS = 'Content-Type'
