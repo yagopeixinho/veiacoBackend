@@ -26,7 +26,7 @@ Antes de rodar o front-end projeto, é necessário ter instalado em sua máquina
 - [Git](https://git-scm.com/)
 - MySQL
 
-### :package: Clonando repositório
+### Clonando repositório
 
 ```bash
 $ git clone git@github.com:yagopeixinho/veiacoBackend.git
@@ -51,4 +51,37 @@ $ pip3 install -r requirements.txt
 ```
 
 ### Variáveis de Ambiente
+
+- Para iniciarmos o projeto precisamos declarar algumas variáveis de ambiente responsáveis pela definição de informações importantes, como o ponto de entrada do APP e SECRET_KEY
+
+```bash
+# No diretório do projeto crie o arquivo responsável pela definição das variáveis de ambiente
+$ touch .env
+```
+
+- Dentro do arquivo `.env` cole as variáveis de ambiente mínimas para rodar o projeto
+
+```bash
+# Para encriptar as senhas dos usuários
+SECRET_KEY="escolharUmaSenhaSegura"
+
+# Ponto de entrada para rodar o APP
+FLASK_APP="veiaco.py"
+```
+
+### Banco de Dados
+
+- Dentro do CLI do MySQL, crie o banco de dados localmente
+
+```Mysql
+mysql> CREATE DATABASE veiaco;
+```
+
+- O Banco de Dados foi criado, porém ainda não possui nenhuma tabela ou informação. Esse é o trabalho do Flask-Migrate. Dentro do back-end:
+
+```bash
+$ flask db upgrade
+```
+
+
 
