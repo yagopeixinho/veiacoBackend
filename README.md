@@ -63,7 +63,7 @@ $ touch .env
 
 ```bash
 # Para encriptar as senhas dos usuários
-SECRET_KEY="escolharUmaSenhaSegura"
+SECRET_KEY="escolhaUmaSenhaSegura"
 
 # Ponto de entrada para rodar o APP
 FLASK_APP="veiaco.py"
