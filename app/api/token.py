@@ -22,6 +22,6 @@ def login():
         'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
     }
     
-    token = jwt.encode(payload, os.getenv("SECRET_KEY"))
+    token = jwt.encode(payload, os.getenv("SECRET_KEY")) # type: ignore
     
     return jsonify({'token': token, 'user': user.to_dict()})
