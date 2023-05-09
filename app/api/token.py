@@ -16,6 +16,8 @@ def login():
     if not hasattr(user, 'verify_password'): 
         raise APIError('E-mail ou senha inválido', 400)
 
+    if not user.verify_password(body['password']):
+        raise APIError('E-mail ou senha inválido', 400)
 
     payload = {
         'id': user.id,
