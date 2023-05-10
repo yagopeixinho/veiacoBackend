@@ -34,7 +34,8 @@ def create_veiaco(current_user):
     except Exception as e:
         print('Error:', e)
         return veiacoResponse(400, {}, 'Error trying to create')
-    
+
+
 
 @bp.route('/veiaco', methods=['GET'])
 @token_required
@@ -48,7 +49,7 @@ def get_veiacos(current_user):
         veiacos = Veiaco.query.filter_by(user_id=current_user.id)
         
         veiacos_list_json = [veiaco.to_dict() for veiaco in veiacos]
-                
+
         return veiacoResponse(200, veiacos_list_json)
     except Exception as e:
         print('Error:', e)
@@ -141,6 +142,7 @@ def delete_user(current_user, id):
 
     except Exception as e:
         print('Error:', e)
+        
         return veiacoResponse(400, {}, 'Something went wrong when trying to delete Veiaco')
     
 

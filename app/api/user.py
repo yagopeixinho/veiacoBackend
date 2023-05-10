@@ -5,6 +5,7 @@ from app import db
 import json
 from app.api.auth import token_required
 from app.utils import veiacoResponse
+from app.api.errors import APIError
 
 @bp.route('/users', methods=['GET'])
 @token_required
@@ -19,6 +20,10 @@ def get_users(current_user):
 @bp.route('/users', methods=['POST'])
 def create_user():
     body = request.get_json()
+
+    if User.query.filter_by(email=body['email']).first():
+        raise APIError('Esse e-mail já está sendo utilizado', 409)
+        
 
     try:
         user = User(name=body['name'], email=body['email'])
