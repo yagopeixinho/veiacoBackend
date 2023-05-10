@@ -1,11 +1,11 @@
-from flask import Response, request
+from flask import Response, request, make_response
 from app.api import bp
 from app.api.auth import token_required
 from app.models import Veiaco, Debt, veiaco_has_debt
 from app import db
 from app.utils import veiacoResponse
-
-
+from prettytable import PrettyTable as pt
+import datetime
 
 @bp.route('/veiaco', methods=['POST'])
 @token_required
@@ -54,6 +54,41 @@ def get_veiacos(current_user):
     except Exception as e:
         print('Error:', e)
         return veiacoResponse(400, [], 'Error when trying to catch Veiacos')
+    
+
+@bp.route('/veiaco/<id>/fiscal_note', methods=['GET'])
+@token_required
+def get_veiaco_fiscal_note(current_user, id):
+    """"
+    @api /veiaco/id/fiscal_note
+    Return a Veiaco debt list
+    """ 
+    
+    tb = pt()
+
+    try:
+        veiaco_debts = Debt.query.join(Veiaco.veiaco_has_debt).filter(Veiaco.id == id).all()
+
+        veiaco_debt_list = [debt.to_dict() for debt in veiaco_debts]
+
+        tb.field_names = ['name', 'value', 'date']
+
+        total_itens_value = 0
+        for debt in veiaco_debt_list:
+            tb.add_row([debt['name'], debt['value'], debt['date']])
+            total_itens_value = total_itens_value + debt['value']
+
+        tb.add_row(['total', total_itens_value, ''])
+
+        response = make_response(tb.get_json_string(), 200)
+        return response    
+    except Exception as e:
+        print('Error:', e)
+        return veiacoResponse(400, [], 'Error when trying to catch Veiacos')
+    finally: 
+        tb.clear()
+
+    
     
     
 @bp.route('/veiaco/<id>', methods=['GET'])
