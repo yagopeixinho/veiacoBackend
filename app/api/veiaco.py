@@ -78,7 +78,7 @@ def get_veiaco_fiscal_note(current_user, id):
             tb.add_row([debt['name'], debt['value'], debt['date']])
             total_itens_value = total_itens_value + debt['value']
 
-        tb.add_row(['total', total_itens_value, ''])
+        tb.add_row(['👉 Total', total_itens_value, ''])
 
         response = make_response(tb.get_json_string(), 200)
         return response    
