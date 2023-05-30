@@ -1,7 +1,6 @@
 # Enviroment generated for each machine
 *.env
 venv
-migrations
 
 # Database
 database.db
