@@ -4,8 +4,8 @@ from app.api.auth import token_required
 from app.models import Veiaco, Debt, veiaco_has_debt
 from app import db
 from app.utils import veiacoResponse
-
-
+from prettytable import PrettyTable as pt
+import datetime
 
 
 @bp.route('/veiaco', methods=['POST'])
