@@ -131,34 +131,6 @@ def get_veiaco_debts(current_user, id):
         return veiacoResponse(400, [], 'Error when trying to update Veiaco')
 
 
-@bp.route('/veiaco', methods=['POST'])
-@token_required
-def create_veiaco(current_user):
-    """
-    @api /veiaco
-    Create a Veiaco
-    """
-
-    body = request.get_json()
-
-    requireds = ['name']
-    absent = [field for field in requireds if field not in body]
-
-    if len(absent) > 0:
-        return veiacoResponse(400, {'msg': 'Field not found'})
-
-    try:
-        veiaco = Veiaco(user=current_user)
-        veiaco.from_dict(body)
-
-        db.session.add(veiaco)
-        db.session.commit()
-
-        return veiacoResponse(201, veiaco.to_dict(), "Success")
-    except Exception as e:
-        print('Error:', e)
-        return veiacoResponse(400, {}, 'Error trying to create')
-
 
 @bp.route('/veiaco/<id>', methods=['PUT'])
 @token_required
