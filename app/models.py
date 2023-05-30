@@ -29,6 +29,7 @@ class User(db.Model):
 
     # Relationships
     veiaco = db.relationship('Veiaco', backref='user')
+    schedule = db.relationship('Schedule', backref='user')
 
     def __repr__(self):
         return '<User {}, ID: {}>'.format(self.name, self.id)
@@ -125,18 +126,21 @@ class Schedule(db.Model):
 
     # Relationships fields
     veiaco_id = db.Column(db.Integer, db.ForeignKey('veiaco.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Schedule {}, ID: {}'.format(self.subject)
 
     def to_dict(self):
         return {'id': self.id,
+                'veiaco_id': self.veiaco_id,
+                'user_id': self.user_id,
                 'end_time': self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
                 'start_time': self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
                 'subject': self.subject
-        }
+                }
 
     def from_dict(self, data):
-        for field in ['start_time', 'end_time', 'subject']:
+        for field in ['start_time', 'end_time', 'subject', 'veiaco_id', 'user_id']:
             if field in data:
                 setattr(self, field, data[field])
