@@ -86,7 +86,7 @@ class Debt(db.Model):
 
     # Relationships fields
     category_id = db.Column(db.Integer, db.ForeignKey(
-        'category.id'), nullable=False)
+        'category.id'))
 
     # Relationships
 
